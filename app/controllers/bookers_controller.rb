@@ -8,14 +8,10 @@ class BookersController < ApplicationController
   	  @post = Booker.find(params[:id])
   end
 
-  def new
-  	  @post = Booker.new
-  end
-
   def create
   	  post = Booker.new(post_params)
   	  post.save
-  	  redirect_to bookers_path
+  	  redirect_to booker_path(post)
   end
 
   def edit
@@ -25,13 +21,13 @@ class BookersController < ApplicationController
   def update
   	  book = Booker.find(params[:id])
   	  book.update(post_params)
-  	  redirect_to booker_path
+  	  redirect_to booker_path, notice: '更新しました'
   end
 
   def destroy
   	  book = Booker.find(params[:id])
   	  book.destroy
-  	  redirect_to bookers_path
+  	  redirect_to bookers_path, alert: '削除しました'
   end
 
   private

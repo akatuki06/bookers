@@ -1,3 +1,8 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
+
 	<h1>Books</h1>
 		<table width="417">
 			<thead>
@@ -19,7 +24,7 @@
 						<%= link_to "Edit", edit_booker_path(book) %>
 					</td>
 					<td>
-						<%= link_to "Destroy", booker_path(book), method: :delete %>
+						<%= link_to "Destroy", booker_path(book), method: :delete, data: { confirm: '削除しますか？' } %>
 					</td>
 				</tr>
 			</tbody>
